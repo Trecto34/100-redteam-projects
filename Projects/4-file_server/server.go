@@ -7,6 +7,7 @@ import (
 
 func main() {
 	fs := http.FileServer(http.Dir("."))
+	log.Printf("Server Started")
 	http.Handle("/", reqLog(fs))
 	http.ListenAndServe(":1337", reqLog(fs))
 }
@@ -16,5 +17,4 @@ func reqLog(targetMux http.Handler) http.Handler {
 		log.Printf("[+] Request: %s %s", r.Method, r.URL)
 		targetMux.ServeHTTP(w, r)
 	})
-
 }
