@@ -8,13 +8,13 @@ import (
 
 func main() {
   port := ":1337"
-  fmt.Printf("[+] Server is running on port: %s\n", port )
-
   // Try to open the server for connections
   ln, err := net.Listen("tcp", port)
   if err != nil {
     panic(err)
   }
+	
+  fmt.Printf("[+] Server is running on port: %s\n", port )
 
   // Accept connection
   conn, err := ln.Accept()
