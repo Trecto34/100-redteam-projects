@@ -13,6 +13,7 @@ func main() {
   if err != nil {
     panic(err)
   }
+  fmt.Printf("[+] Server is running\n")
 
   // Accept connection
   conn, err := ln.Accept()
